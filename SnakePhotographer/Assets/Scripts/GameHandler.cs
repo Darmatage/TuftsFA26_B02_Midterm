@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour {
 
-/*
       private GameObject player;
+/*
+      
       public static int playerHealth = 100;
       public int StartPlayerHealth = 100;
       public TMP_Text healthText;
@@ -25,8 +26,9 @@ public class GameHandler : MonoBehaviour {
       public static string lastLevelDied;  //allows replaying the Level where you died
 */
       void Start(){
-		/*
             player = GameObject.FindWithTag("Player");
+		/*
+            
             sceneName = SceneManager.GetActiveScene().name;
             //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
