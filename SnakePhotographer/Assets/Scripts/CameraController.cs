@@ -15,12 +15,12 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        
+
         transform.position = new Vector3(0, 2, 0);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         //get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * mouseSens;

@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cc566b06f914e8a9da2603b4ff29e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  mouseSens: 2000
+  mouseSens: 1000
   playerTransform: {fileID: 2051846130189085036}
 --- !u!1 &3459671504886793635
 GameObject:
