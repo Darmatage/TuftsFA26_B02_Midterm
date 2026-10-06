@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4341835423327496203}
   - component: {fileID: 8161322066139485295}
   - component: {fileID: 1105894062639675866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 2051846130189085036}
   - component: {fileID: 163230192874228104}
   - component: {fileID: 1059319651647674479}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 5731173692131781496}
   - component: {fileID: 1017192933693342716}
   - component: {fileID: 9087108590142283341}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
