@@ -210,7 +210,6 @@ GameObject:
   - component: {fileID: 139021987}
   - component: {fileID: 139021986}
   - component: {fileID: 139021985}
-  - component: {fileID: 139021984}
   m_Layer: 5
   m_Name: map5
   m_TagString: Untagged
@@ -238,18 +237,6 @@ RectTransform:
   m_AnchoredPosition: {x: 91, y: -142}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &139021984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139021982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e285a2b8513379409712ae6cf6a3134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelsManager
 --- !u!114 &139021985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,7 +967,6 @@ GameObject:
   - component: {fileID: 1163022025}
   - component: {fileID: 1163022024}
   - component: {fileID: 1163022023}
-  - component: {fileID: 1163022022}
   m_Layer: 5
   m_Name: map3
   m_TagString: Untagged
@@ -1008,18 +994,6 @@ RectTransform:
   m_AnchoredPosition: {x: 245, y: 105}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1163022022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163022020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e285a2b8513379409712ae6cf6a3134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelsManager
 --- !u!114 &1163022023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,7 +1215,6 @@ GameObject:
   - component: {fileID: 1584263533}
   - component: {fileID: 1584263532}
   - component: {fileID: 1584263531}
-  - component: {fileID: 1584263530}
   m_Layer: 5
   m_Name: map1
   m_TagString: Untagged
@@ -1269,18 +1242,6 @@ RectTransform:
   m_AnchoredPosition: {x: -370, y: 105}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1584263530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584263528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e285a2b8513379409712ae6cf6a3134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelsManager
 --- !u!114 &1584263531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,7 +1336,6 @@ GameObject:
   - component: {fileID: 1613936184}
   - component: {fileID: 1613936183}
   - component: {fileID: 1613936182}
-  - component: {fileID: 1613936181}
   m_Layer: 5
   m_Name: map2
   m_TagString: Untagged
@@ -1403,18 +1363,6 @@ RectTransform:
   m_AnchoredPosition: {x: -76, y: 105}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1613936181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613936179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e285a2b8513379409712ae6cf6a3134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelsManager
 --- !u!114 &1613936182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,7 +1536,6 @@ GameObject:
   - component: {fileID: 1807082651}
   - component: {fileID: 1807082650}
   - component: {fileID: 1807082649}
-  - component: {fileID: 1807082648}
   m_Layer: 5
   m_Name: map4
   m_TagString: Untagged
@@ -1616,18 +1563,6 @@ RectTransform:
   m_AnchoredPosition: {x: -245, y: -137}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1807082648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807082646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e285a2b8513379409712ae6cf6a3134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelsManager
 --- !u!114 &1807082649
 MonoBehaviour:
   m_ObjectHideFlags: 0
