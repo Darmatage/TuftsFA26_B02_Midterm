@@ -1,3 +1,6 @@
+/* controlls the game camera, not the actual camera that takes photos.
+*/
+
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
