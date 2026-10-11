@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
       private GameObject player;
-      public GameObject PhotoCamera;
+      private GameObject PhotoCamera;
 
       private PhotoTaker photoScript;
 
       private bool photoCameraEnabled = false;
+
+      private bool snakeIsHit = false;
 /*    
       
       public static int playerHealth = 100;
@@ -33,7 +35,12 @@ public class GameHandler : MonoBehaviour {
       void Start()
       {
             player = GameObject.FindWithTag("Player");
+            PhotoCamera = player.transform.Find("Camera").gameObject;
             photoScript = PhotoCamera.GetComponent<PhotoTaker>();
+
+            if (photoScript == null) {
+                  Debug.Log("failed to get photoscript!");
+            }
             //PhotoCamera.GetComponent<PhotoTaker>();
 
 
@@ -66,9 +73,17 @@ public class GameHandler : MonoBehaviour {
             if (Input.GetMouseButtonDown(0) && photoCameraEnabled) // left click
             {
                   Debug.Log("Left mouse button pressed down!");
-                  if (photoCameraEnabled)
-                        photoScript.takePhoto();
+                  if (photoCameraEnabled) {
+                        snakeIsHit = photoScript.takePhoto(); 
+                        //snakeIsHit will contain a bool that says if the snake 
+                        //is captured in the photo or not
+                  }
             }
+
+            if (snakeIsHit) {
+                  //the player wins! 
+            }
+
       }
 /*
 
