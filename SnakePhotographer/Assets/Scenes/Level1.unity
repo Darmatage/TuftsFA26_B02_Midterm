@@ -367,7 +367,7 @@ PrefabInstance:
     - target: {fileID: 2759888263675881751, guid: 8ba7e99cd8aaac740b106f8ac3754b13, type: 3}
       propertyPath: PhotoCamera
       value: 
-      objectReference: {fileID: 1952483853}
+      objectReference: {fileID: 794077575}
     - target: {fileID: 8714730025318732460, guid: 8ba7e99cd8aaac740b106f8ac3754b13, type: 3}
       propertyPath: m_Name
       value: GameHandler
@@ -479,6 +479,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694774286}
   m_CullTransparentMesh: 1
+--- !u!1 &794077575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5583455069464448514, guid: e7d4a1cc0d23a4c1fbaec91f85b6854b, type: 3}
+  m_PrefabInstance: {fileID: 5999890858014186905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &800466939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,11 +865,6 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2278200947365679490, guid: 308dc5df9843a4d08a4fd07714fcb1c5, type: 3}
   m_PrefabInstance: {fileID: 1804443969}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1952483853 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6511305986158039562, guid: e7d4a1cc0d23a4c1fbaec91f85b6854b, type: 3}
-  m_PrefabInstance: {fileID: 5999890858014186905}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2105164500
 PrefabInstance:
