@@ -4,10 +4,12 @@ using UnityEngine.UI;
 public class Level1TextController : MonoBehaviour
 {
     public Text startText;
+    public Text distanceText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Invoke("HideStartText", 7f);
+        Invoke("HideDistanceText", 7f);
     }
 
     // Update is called once per frame
@@ -19,5 +21,10 @@ public class Level1TextController : MonoBehaviour
     private void HideStartText()
     {
         startText.gameObject.SetActive(false);
+    }
+
+    private void HideDistanceText()
+    {
+        distanceText.gameObject.SetActive(false);
     }
 }
