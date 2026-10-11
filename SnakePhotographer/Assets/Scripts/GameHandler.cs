@@ -8,7 +8,12 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
       private GameObject player;
-/*
+      public GameObject PhotoCamera;
+
+      private PhotoTaker photoScript;
+
+      private bool photoCameraEnabled = false;
+/*    
       
       public static int playerHealth = 100;
       public int StartPlayerHealth = 100;
@@ -25,8 +30,13 @@ public class GameHandler : MonoBehaviour {
       private string sceneName;
       public static string lastLevelDied;  //allows replaying the Level where you died
 */
-      void Start(){
+      void Start()
+      {
             player = GameObject.FindWithTag("Player");
+            photoScript = PhotoCamera.GetComponent<PhotoTaker>();
+            //PhotoCamera.GetComponent<PhotoTaker>();
+
+
 		/*
             
             sceneName = SceneManager.GetActiveScene().name;
@@ -36,7 +46,33 @@ public class GameHandler : MonoBehaviour {
             updateStatsDisplay();
 			*/
       }
+
+      void Update() 
+      {
+            
+            if (Input.GetMouseButtonDown(1)) // right click
+            {
+                  Debug.Log("Right mouse button pressed down!");
+                  if (photoCameraEnabled) {
+                        Debug.Log("disabling camera!");
+                        photoCameraEnabled = photoScript.disableCamera();
+                  } else {
+                        Debug.Log("enabling camera!");
+                        photoCameraEnabled = photoScript.enableCamera();
+                  }
+                        
+            }
+
+            if (Input.GetMouseButtonDown(0) && photoCameraEnabled) // left click
+            {
+                  Debug.Log("Left mouse button pressed down!");
+                  if (photoCameraEnabled)
+                        photoScript.takePhoto();
+            }
+      }
 /*
+
+
       public void playerGetTokens(int newTokens){
             gotTokens += newTokens;
             updateStatsDisplay();
