@@ -136,8 +136,12 @@ public class GameHandler : MonoBehaviour {
       }
 */
       public void StartGame() {
-            SceneManager.LoadScene("Level1");
-      }
+        // 1. First, load the actual gameplay level normally
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
+        
+        // 2. ADD THIS LINE: This loads your UI scene ON TOP of Level1 smoothly
+        UnityEngine.SceneManagement.SceneManager.LoadScene("UIScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+    }
 
       // Return to MainMenu
       public void MainMenu() {
