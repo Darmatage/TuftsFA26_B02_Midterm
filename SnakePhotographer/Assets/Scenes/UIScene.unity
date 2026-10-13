@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5463548606504881000, guid: bc1cb9e87ff06f044bf603e8fb524fb8, type: 3}
+      propertyPath: mapPanel
+      value: 
+      objectReference: {fileID: 2613480530073271456, guid: 20da3551418eb3641b60c28d1240cf35, type: 3}
     - target: {fileID: 8340339988320578106, guid: bc1cb9e87ff06f044bf603e8fb524fb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
