@@ -11,8 +11,8 @@ public class UIFrameController : MonoBehaviour
     [SerializeField] private Button mainMenuButton;
 
     [Header("UI Panels")]
-    [SerializeField] private GameObject photobookPanel;
-    [SerializeField] private GameObject mapPanel;
+    //[SerializeField] private GameObject photobookPanel;
+    //[SerializeField] private GameObject mapPanel;
 
     [Header("Notes System")]
     [SerializeField] private TMP_InputField notesInputField;
@@ -34,30 +34,30 @@ public class UIFrameController : MonoBehaviour
         }
 
         // Setup simple panel toggles locally inside this script
-        photobookButton.onClick.AddListener(TogglePhotobook);
-        mapButton.onClick.AddListener(ToggleMap);
+        // photobookButton.onClick.AddListener(TogglePhotobook);
+        // mapButton.onClick.AddListener(ToggleMap);
 
         // Setup Main Menu execution
         mainMenuButton.onClick.AddListener(HandleMainMenuClick);
 
         // Start with windows closed so they don't block gameplay
-        photobookPanel.SetActive(false);
-        mapPanel.SetActive(false);
+        //photobookPanel.SetActive(false);
+        //mapPanel.SetActive(false);
     }
 
-    void TogglePhotobook()
-    {
-        bool isActive = !photobookPanel.activeSelf;
-        photobookPanel.SetActive(isActive);
-        if (isActive) mapPanel.SetActive(false); // Clean overlap management
-    }
+    // void TogglePhotobook()
+    // {
+    //     bool isActive = !photobookPanel.activeSelf;
+    //     photobookPanel.SetActive(isActive);
+    //     //if (isActive) mapPanel.SetActive(false); // Clean overlap management
+    // }
 
-    void ToggleMap()
-    {
-        bool isActive = !mapPanel.activeSelf;
-        mapPanel.SetActive(isActive);
-        if (isActive) photobookPanel.SetActive(false); // Clean overlap management
-    }
+    // void ToggleMap()
+    // {
+    //     //bool isActive = !mapPanel.activeSelf;
+    //     //mapPanel.SetActive(isActive);
+    //     //if (isActive) photobookPanel.SetActive(false); // Clean overlap management
+    // }
 
     void SaveNotesTemporarily(string newText)
     {

@@ -9,6 +9,8 @@ public class GameHandler : MonoBehaviour {
 
       private GameObject player;
       private GameObject PhotoCamera;
+      public GameObject pauseMenu;
+      private bool isPaused = false;
 
       private PhotoTaker photoScript;
 
@@ -44,6 +46,7 @@ public class GameHandler : MonoBehaviour {
             //PhotoCamera.GetComponent<PhotoTaker>();
 
 
+            pauseMenu.SetActive(false);
 		/*
             
             sceneName = SceneManager.GetActiveScene().name;
@@ -82,6 +85,19 @@ public class GameHandler : MonoBehaviour {
 
             if (snakeIsHit) {
                   //the player wins! 
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                  QuitGame();
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+            if (isPaused)
+                  ResumeGame();
+            else
+                  PauseGame();
             }
 
       }
@@ -137,7 +153,7 @@ public class GameHandler : MonoBehaviour {
 */
       public void StartGame() {
         // 1. First, load the actual gameplay level normally
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
         
         // 2. ADD THIS LINE: This loads your UI scene ON TOP of Level1 smoothly
         UnityEngine.SceneManagement.SceneManager.LoadScene("UIScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
@@ -147,6 +163,20 @@ public class GameHandler : MonoBehaviour {
       public void MainMenu() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
+             // Reset all static variables here, for new games:
+            //playerHealth = StartPlayerHealth;
+      }
+
+      public void PhotoBook() {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("PhotobookScene");
+             // Reset all static variables here, for new games:
+            //playerHealth = StartPlayerHealth;
+      }
+
+      public void Map() {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("MapScene");
              // Reset all static variables here, for new games:
             //playerHealth = StartPlayerHealth;
       }
@@ -172,4 +202,26 @@ public class GameHandler : MonoBehaviour {
       public void Credits() {
             SceneManager.LoadScene("Credits");
       }
+
+      public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+
+        Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+    }
+
+      
 } 
