@@ -4,8 +4,9 @@ using UnityEngine.UI;
 public class SliderControllerLevel3 : MonoBehaviour
 {
     public Slider colorSlider;
-    public float speed = 0.5f;
+    public float speed = 0.35f;
     public Image fillImage;
+    public bool CanTakePicture { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,9 @@ public class SliderControllerLevel3 : MonoBehaviour
         colorSlider.value = Mathf.PingPong(Time.time * speed, 1f); //moves the value back and forth
 
         float value = colorSlider.normalizedValue;
-        fillImage.color = Color.Lerp(Color.green, Color.red, value);
+        fillImage.color = Color.Lerp(Color.red, Color.green, value);
+
+        CanTakePicture = value >= 0.85f;
 
     }
 }

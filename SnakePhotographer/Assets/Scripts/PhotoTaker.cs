@@ -2,6 +2,7 @@
 */
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 public class PhotoTaker : MonoBehaviour
@@ -11,6 +12,9 @@ public class PhotoTaker : MonoBehaviour
     public Transform playerCamera;
     Ray ray;
     public float maxDetectDistance = 100;
+    public DistanceSliderController distanceMeter; //to reference another script
+    public SliderControllerLevel3 wildcatDistanceMeter;
+    public Text nextLevelText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +23,8 @@ public class PhotoTaker : MonoBehaviour
         photoCamera = photoCamera_T.GetComponent<Camera>();
 
         disableCamera();
+
+        nextLevelText.enabled = false;
         
     }
 
@@ -51,12 +57,32 @@ public class PhotoTaker : MonoBehaviour
 
     public bool takePhoto() 
     {
+        //returns whether the slider is in the green
+        if (distanceMeter == null || !distanceMeter.CanTakePicture)
+        {
+            Debug.Log("Cannot take photo! Get to the correct distance.");
+            return false;
+        }
+
+        //only check if it's actually assigned
+        if (wildcatDistanceMeter != null &&
+        !wildcatDistanceMeter.CanTakePicture)
+        {
+            Debug.Log("Wildcat slider is not green!");
+            return false;
+        }
+
+        //shows whether the snake is in the picture while the slider is green
         bool snakeDetected = detectSnake();
 
         if (snakeDetected) {
             //make the photo
+            Debug.Log("Photo taken!");
+            //need to load win message
+            nextLevelText.enabled = true;
         } else {
             //do whatever needs to be done when snake is not detected.
+            Debug.Log("Snake not detected!");
         }   
 
         return snakeDetected;

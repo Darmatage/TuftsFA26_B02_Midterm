@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &694774287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Good Job! You can check the picture of your snake in the photobook below
-    or go to the next level!
+    and go to the next level!
 --- !u!222 &694774289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -545,6 +545,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca8e3a46cac682947af2b123520b7bd0, type: 3}
+--- !u!114 &1252157002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891416819722816465, guid: 5257ee3a13b3abb48a35f10c4dbe604b, type: 3}
+  m_PrefabInstance: {fileID: 643379050}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5724d5681f03c8f45bee12564055e894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DistanceSliderController
 --- !u!1 &1354310838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1104,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5930910645662618790, guid: e7d4a1cc0d23a4c1fbaec91f85b6854b, type: 3}
+      propertyPath: distanceMeter
+      value: 
+      objectReference: {fileID: 1252157002}
+    - target: {fileID: 5930910645662618790, guid: e7d4a1cc0d23a4c1fbaec91f85b6854b, type: 3}
+      propertyPath: nextLevelText
+      value: 
+      objectReference: {fileID: 694774288}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
