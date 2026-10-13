@@ -36,17 +36,24 @@ public class GameHandler : MonoBehaviour {
 */
       void Start()
       {
-            player = GameObject.FindWithTag("Player");
-            PhotoCamera = player.transform.Find("Camera").gameObject;
-            photoScript = PhotoCamera.GetComponent<PhotoTaker>();
 
-            if (photoScript == null) {
-                  Debug.Log("failed to get photoscript!");
+            player = GameObject.FindWithTag("Player");
+            if (player != null) {
+                  PhotoCamera = player.transform.Find("Camera").gameObject;
+                  photoScript = PhotoCamera.GetComponent<PhotoTaker>();
+
+                  if (photoScript == null) {
+                        Debug.Log("failed to get photoscript!");
+                  }
+
+                  pauseMenu.SetActive(false);
             }
+
+
             //PhotoCamera.GetComponent<PhotoTaker>();
 
 
-            pauseMenu.SetActive(false);
+            
 		/*
             
             sceneName = SceneManager.GetActiveScene().name;
