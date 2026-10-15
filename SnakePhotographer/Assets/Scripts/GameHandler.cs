@@ -96,7 +96,7 @@ public class GameHandler : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                  QuitGame();
+                  //QuitGame();
             }
 
             if (Input.GetKeyDown(KeyCode.P))
