@@ -230,5 +230,10 @@ public class GameHandler : MonoBehaviour {
             Cursor.visible = false;
     }
 
+    public void RestartLevel()
+      {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      }
+
       
 } 
