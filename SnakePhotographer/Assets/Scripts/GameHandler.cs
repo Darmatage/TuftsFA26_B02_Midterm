@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameHandler : MonoBehaviour {
 
@@ -19,7 +20,8 @@ public class GameHandler : MonoBehaviour {
       private bool snakeIsHit = false;
 
       //saving game progress
-      public GameObject finishGameButton;
+      //temporarily disabled anything related to finishGameButton
+      //public GameObject finishGameButton;
 
       public string[] levelSceneNames = { "Level1", "Level2", "Level3", "Level4" };
 /*    
@@ -55,11 +57,12 @@ public class GameHandler : MonoBehaviour {
             }
 
             //check if all levels completed
+            /*
             if (finishGameButton != null)
             {
                   CheckAllLevelsCompleted();
             }
-
+            */
 
             //PhotoCamera.GetComponent<PhotoTaker>();
 
@@ -77,48 +80,53 @@ public class GameHandler : MonoBehaviour {
 
       void Update() 
       {
-            
-            if (Input.GetMouseButtonDown(1)) // right click
-            {
-                  Debug.Log("Right mouse button pressed down!");
-                  if (photoCameraEnabled) {
-                        Debug.Log("disabling camera!");
-                        photoCameraEnabled = photoScript.disableCamera();
-                  } else {
-                        Debug.Log("enabling camera!");
-                        photoCameraEnabled = photoScript.enableCamera();
+            if (isPaused == false) { 
+                  if (Input.GetMouseButtonDown(1)) // right click
+                  {
+                        Debug.Log("Right mouse button pressed down!");
+                        if (photoCameraEnabled) {
+                              Debug.Log("disabling camera!");
+                              photoCameraEnabled = photoScript.disableCamera();
+                        } else {
+                              Debug.Log("enabling camera!");
+                              photoCameraEnabled = photoScript.enableCamera();
+                        }
+                              
                   }
-                        
-            }
 
-            if (Input.GetMouseButtonDown(0) && photoCameraEnabled) // left click
-            {
-                  Debug.Log("Left mouse button pressed down!");
-                  if (photoCameraEnabled) {
-                        snakeIsHit = photoScript.takePhoto(); 
-                        //snakeIsHit will contain a bool that says if the snake 
-                        //is captured in the photo or not
+                  if (Input.GetMouseButtonDown(0) && photoCameraEnabled) // left click
+                  {
+                        Debug.Log("Left mouse button pressed down!");
+                        if (photoCameraEnabled) {
+                              snakeIsHit = photoScript.takePhoto(); 
+                              //snakeIsHit will contain a bool that says if the snake 
+                              //is captured in the photo or not
+                        }
+                  }
+
+                  if (snakeIsHit) {
+                        //the player wins! 
                   }
             }
 
-            if (snakeIsHit) {
-                  //the player wins! 
-            }
-
+            /*
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                   QuitGame();
             }
+            */
 
             if (Input.GetKeyDown(KeyCode.P))
             {
-            if (isPaused)
-                  ResumeGame();
-            else
-                  PauseGame();
+                  if (isPaused) {
+                        ResumeGame();
+                  } else {
+                        PauseGame();
+                  }
             }
 
-            if (Input.GetKeyDown(KeyCode.P))
+            //changed this to button b to avoid conflict with pause
+            if (Input.GetKeyDown(KeyCode.B))
             {
                   SceneManager.LoadScene("PhotobookScene");
             } else if (Input.GetKeyDown(KeyCode.M)) {
@@ -220,11 +228,11 @@ public class GameHandler : MonoBehaviour {
 	  */
 
       public void QuitGame() {
-                #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-                #else
-                Application.Quit();
-                #endif
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
+            Application.Quit();
+            #endif
       }
 
       public void Credits() {
@@ -232,31 +240,34 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void PauseGame()
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
+      {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            isPaused = true;
 
-        Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-    }
+      }
 
-    public void ResumeGame()
-    {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
+      public void ResumeGame()
+      {
+            
+            Time.timeScale = 1f;
+            isPaused = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-    }
 
-    public void WinGame()
+
+            pauseMenu.SetActive(false);
+      }
+
+      public void WinGame()
       {
             SceneManager.LoadScene("WinScene");
       }
 
-    public void RestartLevel()
+      public void RestartLevel()
       {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
       }
@@ -287,7 +298,7 @@ public class GameHandler : MonoBehaviour {
                   }
             }
 
-            finishGameButton.SetActive(allCompleted);
+            //finishGameButton.SetActive(allCompleted);
       }
 
       
