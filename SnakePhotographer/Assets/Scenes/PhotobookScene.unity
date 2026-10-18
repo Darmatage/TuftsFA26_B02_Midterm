@@ -383,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2862589103862801452, guid: 58fd4a213b7616b4fa45da587513ece1, type: 3}
       propertyPath: m_text
-      value: CONTINUE
+      value: MENU
       objectReference: {fileID: 0}
     - target: {fileID: 3337938051878151552, guid: 58fd4a213b7616b4fa45da587513ece1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 550671239}
     - target: {fileID: 3337938051878151552, guid: 58fd4a213b7616b4fa45da587513ece1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Credits
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3337938051878151552, guid: 58fd4a213b7616b4fa45da587513ece1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1179,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 550671239}
     - target: {fileID: 3337938051878151552, guid: 58fd4a213b7616b4fa45da587513ece1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 3337938051878151552, guid: 58fd4a213b7616b4fa45da587513ece1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

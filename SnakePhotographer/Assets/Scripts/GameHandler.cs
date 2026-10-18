@@ -17,6 +17,11 @@ public class GameHandler : MonoBehaviour {
       private bool photoCameraEnabled = false;
 
       private bool snakeIsHit = false;
+
+      //saving game progress
+      public GameObject finishGameButton;
+
+      public string[] levelSceneNames = { "Level1", "Level2", "Level3", "Level4" };
 /*    
       
       public static int playerHealth = 100;
@@ -47,6 +52,12 @@ public class GameHandler : MonoBehaviour {
                   }
 
                   pauseMenu.SetActive(false);
+            }
+
+            //check if all levels completed
+            if (finishGameButton != null)
+            {
+                  CheckAllLevelsCompleted();
             }
 
 
@@ -96,7 +107,7 @@ public class GameHandler : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                  //QuitGame();
+                  QuitGame();
             }
 
             if (Input.GetKeyDown(KeyCode.P))
@@ -105,6 +116,16 @@ public class GameHandler : MonoBehaviour {
                   ResumeGame();
             else
                   PauseGame();
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                  SceneManager.LoadScene("PhotobookScene");
+            } else if (Input.GetKeyDown(KeyCode.M)) {
+                  SceneManager.LoadScene("MapScene");
+            } else if (Input.GetKeyDown(KeyCode.N))
+            {
+                  SceneManager.LoadScene("MainMenu");
             }
 
       }
@@ -230,9 +251,43 @@ public class GameHandler : MonoBehaviour {
             Cursor.visible = false;
     }
 
+    public void WinGame()
+      {
+            SceneManager.LoadScene("WinScene");
+      }
+
     public void RestartLevel()
       {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      }
+
+      //marks current level as completed]
+      //NEED TO ACTUALLY CONNECT TO STH THAT SIGNALS IT'S COMPLETED! PHOTO TAKEN?
+      public void CompleteCurrentLevel()
+      {
+            string levelName = SceneManager.GetActiveScene().name;
+
+            //save this level as completed
+            PlayerPrefs.SetInt("Completed_" + levelName, 1);
+            PlayerPrefs.Save();
+      }
+
+
+      //checks whether all levels are completed and activates a button to finish the game
+      public void CheckAllLevelsCompleted()
+      {
+            bool allCompleted = true;
+
+            foreach (string levelName in levelSceneNames)
+            {
+                  if (PlayerPrefs.GetInt("Completed_" + levelName, 0) == 0)
+                  {
+                  allCompleted = false;
+                  break;
+                  }
+            }
+
+            finishGameButton.SetActive(allCompleted);
       }
 
       
