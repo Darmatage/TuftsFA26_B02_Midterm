@@ -375,6 +375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2759888263675881751, guid: 8ba7e99cd8aaac740b106f8ac3754b13, type: 3}
+      propertyPath: runLevelTimer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8714730025318732460, guid: 8ba7e99cd8aaac740b106f8ac3754b13, type: 3}
       propertyPath: m_Name
       value: GameHandler

@@ -131,6 +131,7 @@ public class PhotoTaker : MonoBehaviour
         if (snakeDetected) {
             //make the photo
             Debug.Log("Photo taken!");
+            FindFirstObjectByType<GameHandler>().RegisterSnakePhoto();
             //need to load win message
             //nextLevelText.enabled = true;
         } else {
@@ -163,4 +164,5 @@ public class PhotoTaker : MonoBehaviour
 
         return false;
     }
+    
 }

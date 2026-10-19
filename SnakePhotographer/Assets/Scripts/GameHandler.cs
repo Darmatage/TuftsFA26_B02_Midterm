@@ -24,6 +24,11 @@ public class GameHandler : MonoBehaviour {
       //public GameObject finishGameButton;
 
       public string[] levelSceneNames = { "Level1", "Level2", "Level3", "Level4" };
+      public float timeRemaining = 60f;
+      public TMP_Text timerText;
+      public string loseSceneName = "LoseScene";
+      public bool snakePhotoTaken = false;
+      public bool runLevelTimer = true;
 /*    
       
       public static int playerHealth = 100;
@@ -55,6 +60,8 @@ public class GameHandler : MonoBehaviour {
 
                   pauseMenu.SetActive(false);
             }
+
+            SetCursorForScene();
 
             //check if all levels completed
             /*
@@ -126,7 +133,7 @@ public class GameHandler : MonoBehaviour {
             }
 
             //changed this to button b to avoid conflict with pause
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.H))
             {
                   SceneManager.LoadScene("PhotobookScene");
             } else if (Input.GetKeyDown(KeyCode.M)) {
@@ -136,6 +143,13 @@ public class GameHandler : MonoBehaviour {
                   SceneManager.LoadScene("MainMenu");
             }
 
+            UpdateTimer();
+
+      }
+
+      public void RegisterSnakePhoto()
+      {
+      snakePhotoTaken = true;
       }
 /*
 
@@ -299,6 +313,55 @@ public class GameHandler : MonoBehaviour {
             }
 
             //finishGameButton.SetActive(allCompleted);
+      }
+
+      //adds and updates timer for each level when bool to have timer is on
+      void UpdateTimer()
+      {
+            if (!runLevelTimer || snakePhotoTaken)
+                  return;
+
+            if (timeRemaining > 0) //if more than 0, continue counting
+            {
+                  timeRemaining -= Time.deltaTime;
+
+                  if (timeRemaining < 0)
+                        timeRemaining = 0;
+            }
+
+            int minutes = Mathf.FloorToInt(timeRemaining / 60);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60);
+
+            if (timerText != null)
+            {
+                  timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            }
+
+            if (timeRemaining <= 0)
+            {
+                  runLevelTimer = false;
+                  Time.timeScale = 1f;
+                  SceneManager.LoadScene(loseSceneName);
+            }
+      }
+
+      //makes sure cursor only locks for gameplay levels
+      void SetCursorForScene()
+      {
+            string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+            if (System.Array.Exists(levelSceneNames, level => level == sceneName))
+            {
+                  //Gameplay levels: lock and hide cursor
+                  Cursor.lockState = CursorLockMode.Locked;
+                  Cursor.visible = false;
+            }
+            else
+            {
+                  //Map, Lose, and other scenes: unlock and show cursor
+                  Cursor.lockState = CursorLockMode.None;
+                  Cursor.visible = true;
+            }
       }
 
       

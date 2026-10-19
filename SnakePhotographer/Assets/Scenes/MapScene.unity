@@ -305,6 +305,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2759888263675881751, guid: 8ba7e99cd8aaac740b106f8ac3754b13, type: 3}
+      propertyPath: runLevelTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759888263675881751, guid: 8ba7e99cd8aaac740b106f8ac3754b13, type: 3}
       propertyPath: finishGameButton
       value: 
       objectReference: {fileID: 406855838}

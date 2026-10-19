@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Level1TextController : MonoBehaviour
 {
-    public Text startText;
-    public Text distanceText;
+    public TMP_Text startText;
+    public TMP_Text distanceText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
