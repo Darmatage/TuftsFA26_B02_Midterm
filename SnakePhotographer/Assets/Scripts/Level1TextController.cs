@@ -6,17 +6,24 @@ public class Level1TextController : MonoBehaviour
 {
     public TMP_Text startText;
     public TMP_Text distanceText;
+
+    public GameObject nextLevelText;
+
+    public GameHandler gameHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Invoke("HideStartText", 7f);
-        Invoke("HideDistanceText", 7f);
+        Invoke("HideStartText", 20f);
+        Invoke("HideDistanceText", 20f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameHandler.snakeIsHit) {
+            nextLevelText.SetActive(true);
+        }
+
     }
 
     private void HideStartText()

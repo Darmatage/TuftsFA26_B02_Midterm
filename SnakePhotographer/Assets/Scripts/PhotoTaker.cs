@@ -19,13 +19,15 @@ public class PhotoTaker : MonoBehaviour
     [SerializeField] float maxDetectDistance = 100;
     public DistanceSliderController distanceMeter; //to reference another script
     public SliderControllerLevel3 wildcatDistanceMeter;
-    public Text nextLevelText;
     
 
 
     //where the taken image goes
     [SerializeField] Image[] photos = new Image[4];
-    int photoCount = 0;
+
+    private Image snakePhoto;
+    bool snakePhotoTaken = false;
+    int photoCount = 3;
 
     //
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -94,13 +96,14 @@ public class PhotoTaker : MonoBehaviour
             new Rect(0,0, texture2D.width, texture2D.height), 
             new Vector2(0.5f,0.5f));
 
-        photos[photoCount].sprite = pictureSprite;
 
         if (photoCount < 3) {
             photoCount++;
-        } else if (photoCount == 3) {
+        } else if (photoCount >= 3) {
             photoCount = 0;
         }
+
+        photos[photoCount].sprite = pictureSprite;
     }
 
     //returns a bool that tells if the snake is detected and the distance is 
@@ -108,6 +111,10 @@ public class PhotoTaker : MonoBehaviour
     //takes a photo, and puts that photo into a canvas image object
     public bool takePhoto() 
     {
+        //disables the camera after snake photo is taken 
+        if (snakePhotoTaken == true) {
+            return false;
+        }
 
         StartCoroutine(makePhoto());
         //returns whether the slider is in the green
@@ -133,7 +140,10 @@ public class PhotoTaker : MonoBehaviour
             Debug.Log("Photo taken!");
             FindFirstObjectByType<GameHandler>().RegisterSnakePhoto();
             //need to load win message
-            //nextLevelText.enabled = true;
+            snakePhoto = photos[photoCount];
+            snakePhotoTaken = true;
+
+            
         } else {
             //do whatever needs to be done when snake is not detected.
             Debug.Log("Snake not detected!");

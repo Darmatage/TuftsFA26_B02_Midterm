@@ -17,7 +17,7 @@ public class GameHandler : MonoBehaviour {
 
       private bool photoCameraEnabled = false;
 
-      private bool snakeIsHit = false;
+      [HideInInspector] public bool snakeIsHit = false;
 
       //saving game progress
       //temporarily disabled anything related to finishGameButton
@@ -29,23 +29,24 @@ public class GameHandler : MonoBehaviour {
       public string loseSceneName = "LoseScene";
       public bool snakePhotoTaken = false;
       public bool runLevelTimer = true;
-/*    
-      
-      public static int playerHealth = 100;
-      public int StartPlayerHealth = 100;
-      public TMP_Text healthText;
 
-      public static int gotTokens = 0;
-      public TMP_Text tokensText;
+      /*
+      public static GameHandler Instance { get; private set; }
+      void Awake()
+      {
+            //Makes it so that the gameHandler is the same gamehandler throughout
+            //all scenes
+            if (Instance != null && Instance != this)
+            {
+                  Destroy(gameObject);
+                  return;
+            }
 
-      public bool isDefending = false;
+            Instance = this;
 
-      public static bool stairCaseUnlocked = false;
-      //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
-
-      private string sceneName;
-      public static string lastLevelDied;  //allows replaying the Level where you died
-*/
+            DontDestroyOnLoad(gameObject);
+      }
+      */
       void Start()
       {
 
@@ -113,15 +114,17 @@ public class GameHandler : MonoBehaviour {
 
                   if (snakeIsHit) {
                         //the player wins! 
+                        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+                        // Check if the current level index is greater than the saved unlocked level
+                        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+                        if (currentSceneIndex >= unlockedLevel)
+                        {
+                              PlayerPrefs.SetInt("UnlockedLevel", currentSceneIndex + 1);
+                              PlayerPrefs.Save();
+                        }
                   }
             }
-
-            /*
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                  QuitGame();
-            }
-            */
 
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -149,97 +152,29 @@ public class GameHandler : MonoBehaviour {
 
       public void RegisterSnakePhoto()
       {
-      snakePhotoTaken = true;
-      }
-/*
-
-
-      public void playerGetTokens(int newTokens){
-            gotTokens += newTokens;
-            updateStatsDisplay();
+            snakePhotoTaken = true;
       }
 
-      public void playerGetHit(int damage){
-           if (isDefending == false){
-                  playerHealth -= damage;
-                  if (playerHealth >=0){
-                        updateStatsDisplay();
-                  }
-                  if (damage > 0){
-                        //play GetHit animation:
-                        player.GetComponent<PlayerHurt>().playerHit();
-                  }
-            }
-
-           if (playerHealth > StartPlayerHealth){
-                  playerHealth = StartPlayerHealth;
-                  updateStatsDisplay();
-            }
-
-           if (playerHealth <= 0){
-                  playerHealth = 0;
-                  updateStatsDisplay();
-                  playerDies();
-            }
-      }
-
-      public void updateStatsDisplay(){
-            healthText.text = "HEALTH: " + playerHealth;
-            tokensText.text = "GOLD: " + gotTokens;
-      }
-
-      public void playerDies(){
-            player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
-            lastLevelDied = sceneName;       //allows replaying the Level where you died
-            StartCoroutine(DeathPause());
-      }
-
-      IEnumerator DeathPause(){
-            player.GetComponent<PlayerMove>().isAlive = false;
-            player.GetComponent<PlayerJump>().isAlive = false;
-            yield return new WaitForSeconds(1.0f);
-            SceneManager.LoadScene("EndLose");
-      }
-*/
       public void StartGame() {
-        // 1. First, load the actual gameplay level normally
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
-        
-        // 2. ADD THIS LINE: This loads your UI scene ON TOP of Level1 smoothly
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("UIScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-    }
+            // 1. First, load the actual gameplay level normally
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
+      }
 
       // Return to MainMenu
       public void MainMenu() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
-             // Reset all static variables here, for new games:
-            //playerHealth = StartPlayerHealth;
       }
 
       public void PhotoBook() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("PhotobookScene");
-             // Reset all static variables here, for new games:
-            //playerHealth = StartPlayerHealth;
       }
 
       public void Map() {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MapScene");
-             // Reset all static variables here, for new games:
-            //playerHealth = StartPlayerHealth;
       }
-
-/*
-      // Replay the Level where you died
-      public void ReplayLastLevel() {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(lastLevelDied);
-             // Reset all static variables here, for new games:
-            playerHealth = StartPlayerHealth;
-      }
-	  */
 
       public void QuitGame() {
             #if UNITY_EDITOR
@@ -265,13 +200,12 @@ public class GameHandler : MonoBehaviour {
 
       public void ResumeGame()
       {
-            
+            //time needs to be set to 1 before setting pauseMenu Active
             Time.timeScale = 1f;
             isPaused = false;
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-
 
             pauseMenu.SetActive(false);
       }
@@ -307,8 +241,8 @@ public class GameHandler : MonoBehaviour {
             {
                   if (PlayerPrefs.GetInt("Completed_" + levelName, 0) == 0)
                   {
-                  allCompleted = false;
-                  break;
+                        allCompleted = false;
+                        break;
                   }
             }
 
