@@ -139,7 +139,7 @@ public class PhotoTaker : MonoBehaviour
             Debug.Log("Photo taken!");
             FindFirstObjectByType<GameHandler>().RegisterSnakePhoto();
             //need to load win message
-            PhotoManager.sprite1 = photos[photoCount].sprite;
+            PhotoManager.sprites[LevelManager.levelsBeaten] = photos[photoCount].sprite;
             snakeIsHit = true;
 
 

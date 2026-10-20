@@ -10,16 +10,16 @@ public class PhotoDisplayer : MonoBehaviour
 
     void Start()
     {
-        if (PhotoManager.sprite1 != null)
-            image1.sprite = PhotoManager.sprite1;
+        if (PhotoManager.sprites[0] != null)
+            image1.sprite = PhotoManager.sprites[0];
 
-        if (PhotoManager.sprite2 != null)
-            image2.sprite = PhotoManager.sprite2;
+        if (PhotoManager.sprites[1] != null)
+            image2.sprite = PhotoManager.sprites[1];
 
-        if (PhotoManager.sprite3 != null)
-            image3.sprite = PhotoManager.sprite3;
+        if (PhotoManager.sprites[2] != null)
+            image3.sprite = PhotoManager.sprites[2];
 
-        if (PhotoManager.sprite4 != null)
-            image4.sprite = PhotoManager.sprite4;
+        if (PhotoManager.sprites[3] != null)
+            image4.sprite = PhotoManager.sprites[3];
     }
 }
