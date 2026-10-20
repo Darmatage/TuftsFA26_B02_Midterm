@@ -691,6 +691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1033270185297788251, guid: bc1cb9e87ff06f044bf603e8fb524fb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1469468025052731172, guid: bc1cb9e87ff06f044bf603e8fb524fb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -858,32 +862,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca8e3a46cac682947af2b123520b7bd0, type: 3}
---- !u!1 &956234069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6200765581183502498, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-  m_PrefabInstance: {fileID: 2105164500}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &956234073
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956234069}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.024105836, y: 0.02050744, z: 0.020371769}
-  m_Center: {x: -0.0017135662, y: -0.0023540715, z: 0.008496459}
 --- !u!114 &1252157002 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4219200502483816476, guid: 308dc5df9843a4d08a4fd07714fcb1c5, type: 3}
@@ -1322,8 +1300,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good Job! You can check the picture of your snake in the photobook below
-    and go to the next level!
+  m_text: Good Job! You can check the picture of your snake in the photobook by pressing
+    H and go to the next level! For More hotkeys, open Pause Menu with P!.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1411,61 +1389,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6200765581183502498, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_TagString
-      value: Snake
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6721160502725644824, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7389882244196232822, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7389882244196232822, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7389882244196232822, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 7389882244196232822, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7389882244196232822, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0000002
+      value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 7389882244196232822, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1506,10 +1436,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6200765581183502498, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 956234073}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5147e8dbf85a47eeb25c9719c421e9f, type: 3}
 --- !u!4 &2105164501 stripped
 Transform:

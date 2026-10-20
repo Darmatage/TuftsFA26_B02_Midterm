@@ -84,12 +84,15 @@ public class GameHandler : MonoBehaviour {
                         Debug.Log("Left mouse button pressed down!");
                         if (photoCameraEnabled) {
                               StartCoroutine(photoScript.takePhoto()); 
-                              snakeIsHit = photoScript.snakeIsHit; 
+                              
                               //snakeIsHit will contain a bool that says if the snake 
                               //is captured in the photo or not
                         }
                   }
 
+                  if (photoScript != null)
+                        snakeIsHit = photoScript.snakeIsHit; 
+                        
                   if (snakeIsHit && !updatedLevel) {
                         Debug.Log("Player Wins!");
                         //the player wins! 

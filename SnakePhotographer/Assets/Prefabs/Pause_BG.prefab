@@ -283,7 +283,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- Move using WASD \n- Right click to activate/deactivate camera\n- Left
-    click to take a picture \n- Pay attention to the slider(s) showing distance"
+    click to take a picture \n- Pay attention to the slider(s) showing distance\n-
+    (H) to check Photobook\n- (M) to open Map\n- (N) to open Menu"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

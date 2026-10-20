@@ -13,8 +13,10 @@ public class Level1TextController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Invoke("HideStartText", 20f);
-        Invoke("HideDistanceText", 20f);
+        if (startText != null)
+            Invoke("HideStartText", 20f);
+        if (distanceText != null)
+            Invoke("HideDistanceText", 20f);
     }
 
     // Update is called once per frame
