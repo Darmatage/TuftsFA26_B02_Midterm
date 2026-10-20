@@ -29,6 +29,10 @@ public class PhotoTaker : MonoBehaviour
     [HideInInspector] public bool snakeIsHit = false;
     int photoCount = 3;
 
+	public GameObject cameraBox;
+	public GameObject cameraScreenOn;
+	//public GameObject cameraScreenOff;
+
     //
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,17 +61,25 @@ public class PhotoTaker : MonoBehaviour
 
     public bool enableCamera() 
     {
+		cameraBox.SetActive(true);
+		cameraScreenOn.SetActive(true);
+		//cameraScreenOff.SetActive(false);
+
         photoCamera_T.gameObject.SetActive(true); 
-        transform.Find("Screen").gameObject.SetActive(true);
-        transform.Find("ScreenBlack").gameObject.SetActive(false);
+        //transform.Find("Screen").gameObject.SetActive(true);
+        //transform.Find("ScreenBlack").gameObject.SetActive(false);
         return true;
     }
 
     public bool disableCamera() 
     {
+		cameraBox.SetActive(false);
+		cameraScreenOn.SetActive(false);
+		//cameraScreenOff.SetActive(false);
+
         photoCamera_T.gameObject.SetActive(false); 
-        transform.Find("Screen").gameObject.SetActive(false);
-        transform.Find("ScreenBlack").gameObject.SetActive(true);
+        //transform.Find("Screen").gameObject.SetActive(false);
+        //transform.Find("ScreenBlack").gameObject.SetActive(true);
         return false;
     }
 

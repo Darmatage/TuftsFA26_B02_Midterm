@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2770172499692412081
 Transform:
   m_ObjectHideFlags: 0
@@ -737,6 +737,8 @@ MonoBehaviour:
   - {fileID: 0}
   snakeSprite: {fileID: 0}
   snakeIsHit: 0
+  cameraBox: {fileID: 2851594072245278493}
+  cameraScreenOn: {fileID: 3588428829174773260}
 --- !u!1 &6511305986158039562
 GameObject:
   m_ObjectHideFlags: 0
