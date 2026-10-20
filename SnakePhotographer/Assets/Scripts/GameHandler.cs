@@ -30,23 +30,8 @@ public class GameHandler : MonoBehaviour {
       public bool snakePhotoTaken = false;
       public bool runLevelTimer = true;
 
-      /*
-      public static GameHandler Instance { get; private set; }
-      void Awake()
-      {
-            //Makes it so that the gameHandler is the same gamehandler throughout
-            //all scenes
-            if (Instance != null && Instance != this)
-            {
-                  Destroy(gameObject);
-                  return;
-            }
+      private bool updatedLevel = false;
 
-            Instance = this;
-
-            DontDestroyOnLoad(gameObject);
-      }
-      */
       void Start()
       {
 
@@ -76,14 +61,6 @@ public class GameHandler : MonoBehaviour {
 
 
             
-		/*
-            
-            sceneName = SceneManager.GetActiveScene().name;
-            //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
-                  playerHealth = StartPlayerHealth;
-            //}
-            updateStatsDisplay();
-			*/
       }
 
       void Update() 
@@ -106,23 +83,18 @@ public class GameHandler : MonoBehaviour {
                   {
                         Debug.Log("Left mouse button pressed down!");
                         if (photoCameraEnabled) {
-                              snakeIsHit = photoScript.takePhoto(); 
+                              StartCoroutine(photoScript.takePhoto()); 
+                              snakeIsHit = photoScript.snakeIsHit; 
                               //snakeIsHit will contain a bool that says if the snake 
                               //is captured in the photo or not
                         }
                   }
 
-                  if (snakeIsHit) {
+                  if (snakeIsHit && !updatedLevel) {
+                        Debug.Log("Player Wins!");
                         //the player wins! 
-                        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        
-                        // Check if the current level index is greater than the saved unlocked level
-                        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
-                        if (currentSceneIndex >= unlockedLevel)
-                        {
-                              PlayerPrefs.SetInt("UnlockedLevel", currentSceneIndex + 1);
-                              PlayerPrefs.Save();
-                        }
+                        LevelManager.levelsBeaten++;
+                        updatedLevel = true;
                   }
             }
 
@@ -226,27 +198,15 @@ public class GameHandler : MonoBehaviour {
       {
             string levelName = SceneManager.GetActiveScene().name;
 
-            //save this level as completed
-            PlayerPrefs.SetInt("Completed_" + levelName, 1);
-            PlayerPrefs.Save();
       }
 
 
       //checks whether all levels are completed and activates a button to finish the game
       public void CheckAllLevelsCompleted()
       {
-            bool allCompleted = true;
-
-            foreach (string levelName in levelSceneNames)
-            {
-                  if (PlayerPrefs.GetInt("Completed_" + levelName, 0) == 0)
-                  {
-                        allCompleted = false;
-                        break;
-                  }
+            if (LevelManager.levelsBeaten == 4) {
+                  //finishGameButton.SetActive(allCompleted);
             }
-
-            //finishGameButton.SetActive(allCompleted);
       }
 
       //adds and updates timer for each level when bool to have timer is on

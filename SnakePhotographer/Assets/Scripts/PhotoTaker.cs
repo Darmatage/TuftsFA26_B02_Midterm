@@ -25,8 +25,8 @@ public class PhotoTaker : MonoBehaviour
     //where the taken image goes
     [SerializeField] Image[] photos = new Image[4];
 
-    private Image snakePhoto;
-    bool snakePhotoTaken = false;
+    [HideInInspector] public Sprite snakeSprite;
+    [HideInInspector] public bool snakeIsHit = false;
     int photoCount = 3;
 
     //
@@ -96,7 +96,6 @@ public class PhotoTaker : MonoBehaviour
             new Rect(0,0, texture2D.width, texture2D.height), 
             new Vector2(0.5f,0.5f));
 
-
         if (photoCount < 3) {
             photoCount++;
         } else if (photoCount >= 3) {
@@ -109,19 +108,19 @@ public class PhotoTaker : MonoBehaviour
     //returns a bool that tells if the snake is detected and the distance is 
     //correct
     //takes a photo, and puts that photo into a canvas image object
-    public bool takePhoto() 
+    public IEnumerator takePhoto() 
     {
         //disables the camera after snake photo is taken 
-        if (snakePhotoTaken == true) {
-            return false;
+        if (snakeIsHit == true) {
+            yield break;
         }
 
-        StartCoroutine(makePhoto());
+        yield return StartCoroutine(makePhoto());
         //returns whether the slider is in the green
         if (distanceMeter == null || !distanceMeter.CanTakePicture)
         {
             Debug.Log("Cannot take photo! Get to the correct distance.");
-            return false;
+            yield break;
         }
 
         //only check if it's actually assigned
@@ -129,7 +128,7 @@ public class PhotoTaker : MonoBehaviour
         !wildcatDistanceMeter.CanTakePicture)
         {
             Debug.Log("Wildcat slider is not green!");
-            return false;
+            yield break;
         }
 
         //shows whether the snake is in the picture while the slider is green
@@ -140,16 +139,16 @@ public class PhotoTaker : MonoBehaviour
             Debug.Log("Photo taken!");
             FindFirstObjectByType<GameHandler>().RegisterSnakePhoto();
             //need to load win message
-            snakePhoto = photos[photoCount];
-            snakePhotoTaken = true;
+            PhotoManager.sprite1 = photos[photoCount].sprite;
+            snakeIsHit = true;
 
-            
+
         } else {
             //do whatever needs to be done when snake is not detected.
             Debug.Log("Snake not detected!");
         }   
 
-        return snakeDetected;
+        yield break;
     }
 
     //returns true if raycast hit snake, false if it hit anything else

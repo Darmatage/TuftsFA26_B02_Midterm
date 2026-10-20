@@ -3,23 +3,23 @@ using UnityEngine.UI;
 
 public class PhotoDisplayer : MonoBehaviour
 {
-    private Image image1;
-    private Image image2;
-    private Image image3;
-    private Image image4;
+    public Image image1;
+    public Image image2;
+    public Image image3;
+    public Image image4;
 
     void Start()
     {
-        image1 = GetComponent<RawImage>();
+        if (PhotoManager.sprite1 != null)
+            image1.sprite = PhotoManager.sprite1;
 
-        // Check if a photo was actually taken
-        if (PhotoManager.CapturedPhoto != null)
-        {
-            rawImage.texture = PhotoManager.CapturedPhoto;
-        }
-        else
-        {
-            Debug.LogWarning("No photo found in PhotoManager!");
-        }
+        if (PhotoManager.sprite2 != null)
+            image2.sprite = PhotoManager.sprite2;
+
+        if (PhotoManager.sprite3 != null)
+            image3.sprite = PhotoManager.sprite3;
+
+        if (PhotoManager.sprite4 != null)
+            image4.sprite = PhotoManager.sprite4;
     }
 }
