@@ -206,7 +206,7 @@ public class GameHandler : MonoBehaviour {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
         
         // 2. ADD THIS LINE: This loads your UI scene ON TOP of Level1 smoothly
-        UnityEngine.SceneManagement.SceneManager.LoadScene("UIScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("UIScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
       // Return to MainMenu
